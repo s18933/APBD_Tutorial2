@@ -11,10 +11,15 @@ namespace Task_2
         public static void Main(string[] args)
         {
 
-            var path = @"Log\log.txt";
-
-            //Cleaning log.tct
-            File.WriteAllText(path, String.Empty);
+            var path = @"log.txt";
+           
+            var fileStream = File.Open(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            fileStream.Close();
+            
+            if (File.Exists(path))
+            {
+                File.WriteAllText(path, string.Empty);
+            }
             
 
             var draft = @"Data\data.csv";
@@ -55,10 +60,11 @@ namespace Task_2
                     {
                         for (int i = 0; i < student.Length; i++)
                         {
-                            
+
                             if (string.IsNullOrEmpty(student[i]))
                             {
                                 string error = "Empty value found: " + line + Environment.NewLine;
+                          
                                 File.AppendAllText(path, error);
                                 break;
                             }
@@ -132,9 +138,9 @@ namespace Task_2
             u.activeStudies.Add(a1);
             u.activeStudies.Add(a2);
 
-         //Console.WriteLine(u.students.Count);
+        Console.WriteLine(u.students.Count);
         serializer.Serialize(writer, u, ns);
-            Console.WriteLine("log.txt -> ...\\bin\\Debug\\netcoreapp3.1\\Log\\log.txt" + "\n" + "Result.xml -> ... \\bin\\Debug\\netcoreapp3.1\\Result.xml");
+            Console.WriteLine("log.txt -> ...\\bin\\Debug\\netcoreapp3.1\\log.txt" + "\n" + "Result.xml -> ... \\bin\\Debug\\netcoreapp3.1\\Result.xml");
             Console.WriteLine("\nPROJECT SPONSOR: https://www.youtube.com/watch?v=8DMChMWAcCk");
         }
     }
