@@ -138,7 +138,7 @@ namespace Task_2
             u.activeStudies.Add(a1);
             u.activeStudies.Add(a2);
 
-        Console.WriteLine(u.students.Count);
+        Console.WriteLine("Final number od students added: " + u.students.Count + " souls");
         serializer.Serialize(writer, u, ns);
             Console.WriteLine("log.txt -> ...\\bin\\Debug\\netcoreapp3.1\\log.txt" + "\n" + "Result.xml -> ... \\bin\\Debug\\netcoreapp3.1\\Result.xml");
             Console.WriteLine("\nPROJECT SPONSOR: https://www.youtube.com/watch?v=8DMChMWAcCk");
